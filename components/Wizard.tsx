@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
-import { Question, UserProfile } from '../types';
-import Button from './Button';
+import { Question, UserProfile } from '../types.ts';
+import Button from './Button.tsx';
 
 interface WizardProps {
   questions: Question[];

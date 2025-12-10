@@ -1,8 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
-import { UserProfile } from "../types";
+import { UserProfile } from "../types.ts";
 
-// In a real Netlify deployment, this comes from Build Settings > Environment Variables
-const API_KEY = process.env.API_KEY || '';
+// Access the API Key from the window.process global defined in index.html
+// @ts-ignore
+const API_KEY = window.process?.env?.API_KEY || '';
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
@@ -12,10 +13,10 @@ export const analyzeRoutineWithGemini = async (
   mimeType: string
 ): Promise<string> => {
   if (!API_KEY) {
-    throw new Error("Falta la API Key. Por favor configura la variable de entorno API_KEY en Netlify o en tu archivo .env local.");
+    throw new Error("Falta la API Key. Por favor verifica la configuración.");
   }
 
-  const modelId = "gemini-2.5-flash"; // Efficient for text + vision analysis
+  const modelId = "gemini-2.5-flash";
 
   // Constructing the complex system prompt based on user requirements
   const systemPrompt = `

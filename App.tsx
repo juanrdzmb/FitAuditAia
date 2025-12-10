@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { AppStep, INITIAL_PROFILE, UserProfile } from './types';
-import { QUESTIONS } from './constants';
-import { analyzeRoutineWithGemini } from './services/geminiService';
-import Wizard from './components/Wizard';
-import FileUpload from './components/FileUpload';
-import LoadingScreen from './components/LoadingScreen';
-import Button from './components/Button';
+import { AppStep, INITIAL_PROFILE, UserProfile } from './types.ts';
+import { QUESTIONS } from './constants.ts';
+import { analyzeRoutineWithGemini } from './services/geminiService.ts';
+import Wizard from './components/Wizard.tsx';
+import FileUpload from './components/FileUpload.tsx';
+import LoadingScreen from './components/LoadingScreen.tsx';
+import Button from './components/Button.tsx';
 import { Activity, Dumbbell, AlertTriangle, RefreshCw } from 'lucide-react';
 
 // Helper to convert File to Base64
@@ -169,11 +169,6 @@ const App: React.FC = () => {
               </div>
               
               <div className="prose prose-invert prose-lg max-w-none markdown-prose whitespace-pre-wrap">
-                {/* 
-                  Note: In a production app with npm access, we would use 'react-markdown' here.
-                  Since we are sticking to pure React/TS without extra deps for portability,
-                  we render the text preserving whitespace and simple formatting via CSS.
-                */}
                 {analysisResult}
               </div>
 

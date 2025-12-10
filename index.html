@@ -6,6 +6,10 @@
     <title>FitAudit AI - Analizador de Rutinas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Babel for in-browser compilation of JSX/TSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -33,19 +37,35 @@
       .markdown-prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
       .markdown-prose strong { color: #fff; font-weight: 600; }
     </style>
-  <script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.1",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.1",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
-    "react/": "https://esm.sh/react@^19.2.1/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.32.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.559.0"
+    "react/": "https://esm.sh/react@^19.2.1/"
   }
 }
 </script>
-</head>
+    
+    <!-- Polyfill for process.env and API Key injection -->
+    <script>
+      window.process = {
+        env: {
+          // KEY PROPORCIONADA POR EL USUARIO PARA DEMO
+          // Nota: En una app comercial real, esto debería estar protegido por un backend.
+          API_KEY: 'AIzaSyDBqQe7zilcN3L_KOZWegULKKWpHKSKASU'
+        }
+      };
+    </script>
+  </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Load the app using Babel to transpile TSX on the fly -->
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
   </body>
 </html>
