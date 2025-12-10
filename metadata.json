@@ -1,0 +1,5 @@
+{
+  "name": "FitAudit AI",
+  "description": "An intelligent workout analyzer that evaluates your routine against your goals, identifying junk volume and structural imbalances using Gemini AI.",
+  "requestFramePermissions": []
+}
