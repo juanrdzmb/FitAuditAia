@@ -1,9 +1,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { UserProfile } from "../types.ts";
 
-// Access the API Key from the window.process global defined in index.html
-// @ts-ignore
-const API_KEY = window.process?.env?.API_KEY || '';
+// Clave API configurada directamente
+const API_KEY = 'AIzaSyDBqQe7zilcN3L_KOZWegULKKWpHKSKASU';
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
@@ -13,7 +12,7 @@ export const analyzeRoutineWithGemini = async (
   mimeType: string
 ): Promise<string> => {
   if (!API_KEY) {
-    throw new Error("Falta la API Key. Por favor verifica la configuración.");
+    throw new Error("Falta la API Key.");
   }
 
   const modelId = "gemini-2.5-flash";
