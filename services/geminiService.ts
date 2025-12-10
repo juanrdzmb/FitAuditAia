@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import { UserProfile } from "../types.ts";
+import { UserProfile } from "../types";
 
 // Clave API configurada directamente
 const API_KEY = 'AIzaSyDBqQe7zilcN3L_KOZWegULKKWpHKSKASU';

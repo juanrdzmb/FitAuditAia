@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { UploadCloud, FileText, Image as ImageIcon, AlertCircle } from 'lucide-react';
-import Button from './Button.tsx';
+import Button from './Button';
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
